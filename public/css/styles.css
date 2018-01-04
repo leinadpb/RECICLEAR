@@ -1,0 +1,15 @@
+.full{
+	background-color: darkred;
+	color:white;
+}
+.full > .caption{
+	color:white;
+}
+
+.empty{
+	background-color: darkgreen;
+	color:white;
+}
+.empty > .caption{
+	color:white;
+}
