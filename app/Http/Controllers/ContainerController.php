@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\DB;
 use App\Container;
 
 class ContainerController extends Controller
@@ -20,7 +21,7 @@ class ContainerController extends Controller
     public function index()
     {
         //Get all containers
-        $c = Container::all();
+        $c = DB::table('containers')->simplePaginate(6);
 
         //Return them to the view
         return View::make('containers.index')->with('containers', $c);

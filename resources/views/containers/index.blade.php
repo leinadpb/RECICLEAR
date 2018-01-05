@@ -123,7 +123,7 @@
 		</div>
 
 		<!-- End Containers -->
-
+		<div align="center">{{ $containers->links() }}</div>
 	</div>
 
 @endsection
