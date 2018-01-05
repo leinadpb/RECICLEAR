@@ -19,6 +19,7 @@ class CreateContainersTable extends Migration
             $table->string('image')->nullable();
             $table->string('status');
             $table->string('name');
+            $table->boolean('being_collected')->default(false);
             $table->timestamps();
         });
     }

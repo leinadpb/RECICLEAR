@@ -117,4 +117,30 @@ class ContainerController extends Controller
     {
         //
     }
+
+
+    public function collect(){
+    	$container = Container::find(Input::get('container_id'));
+    	$container->being_collected = 1;
+    	$container->save();
+    	return Redirect::to('admin/containers');
+    }
+
+    public function set_full(){
+    	$container = Container::find(Input::get('container_id'));
+    	$container->status = "FULL";
+    	$container->being_collected = 0;
+    	$container->save();
+    	return Redirect::to('admin/containers');
+
+    }
+
+    public function set_empty(){
+    	$container = Container::find(Input::get('container_id'));
+    	$container->status = "EMPTY";
+    	$container->being_collected = 0;
+    	$container->save();
+    	return Redirect::to('admin/containers');
+    	
+    }
 }

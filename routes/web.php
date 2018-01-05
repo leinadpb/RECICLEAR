@@ -19,3 +19,8 @@ Auth::routes();
 Route::resource('admin/containers', 'ContainerController');
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::post('admin/containers/collect', 'ContainerController@collect')->name('collect');
+
+Route::post('admin/containers/change_to_empty', 'ContainerController@set_empty')->name('empty');
+Route::post('admin/containers/change_to_full', 'ContainerController@set_full')->name('full');

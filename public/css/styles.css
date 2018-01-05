@@ -1,5 +1,5 @@
 .full{
-	background-color: darkred;
+	background-color: #FF4848;
 	color:white;
 }
 .full > .caption{
@@ -7,7 +7,7 @@
 }
 
 .empty{
-	background-color: darkgreen;
+	background-color: #1FCB4A;
 	color:white;
 }
 .empty > .caption{
