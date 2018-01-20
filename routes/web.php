@@ -24,3 +24,4 @@ Route::post('admin/containers/collect', 'ContainerController@collect')->name('co
 
 Route::post('admin/containers/change_to_empty', 'ContainerController@set_empty')->name('empty');
 Route::post('admin/containers/change_to_full', 'ContainerController@set_full')->name('full');
+Route::post('admin/containers/change_amount', 'ContainerController@change_amount')->name('change_amount');

@@ -20,6 +20,7 @@ class CreateContainersTable extends Migration
             $table->string('status');
             $table->string('name');
             $table->boolean('being_collected')->default(false);
+            $table->decimal('amount', 5, 2)->default(0.00);
             $table->timestamps();
         });
     }

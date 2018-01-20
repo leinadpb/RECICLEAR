@@ -13,3 +13,15 @@
 .empty > .caption{
 	color:white;
 }
+
+.greaterMiddle{
+	background-color: #B6BA18;
+	color:white;
+}
+.greaterMiddle > .caption{
+	color:white;
+}
+
+.show_amount > span{
+	font-size: 2.4rem;
+}

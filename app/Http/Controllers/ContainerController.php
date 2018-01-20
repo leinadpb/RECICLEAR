@@ -13,6 +13,10 @@ use App\Container;
 
 class ContainerController extends Controller
 {
+	    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -21,7 +25,7 @@ class ContainerController extends Controller
     public function index()
     {
         //Get all containers
-        $c = DB::table('containers')->simplePaginate(6);
+        $c = DB::table('containers')->orderBy('id', 'asc')->paginate(12);
 
         //Return them to the view
         return View::make('containers.index')->with('containers', $c);
@@ -131,6 +135,7 @@ class ContainerController extends Controller
     	$container = Container::find(Input::get('container_id'));
     	$container->status = "FULL";
     	$container->being_collected = 0;
+    	$container->amount = 100.00;
     	$container->save();
     	return Redirect::to('admin/containers');
 
@@ -140,8 +145,25 @@ class ContainerController extends Controller
     	$container = Container::find(Input::get('container_id'));
     	$container->status = "EMPTY";
     	$container->being_collected = 0;
+    	$container->amount = 0.00;
     	$container->save();
     	return Redirect::to('admin/containers');
     	
+    }
+
+    public function change_amount(){
+    	$container = Container::find(Input::get('container_id'));
+    	$new_amount = $container->amount + Input::get('add_amount');
+
+    	if($new_amount < 0) $new_amount = 0;
+    	if($new_amount > 100) $new_amount = 100;
+
+    	$container->amount = $new_amount;
+
+    	if($new_amount < 100) $container->status = "EMPTY";
+    	else $container->status = "FULL";
+
+    	$container->save();
+    	return Redirect::to('admin/containers');
     }
 }

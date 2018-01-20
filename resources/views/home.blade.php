@@ -16,6 +16,8 @@
 
                     <ul class="list-group">
                       <a href="/admin/containers"><li class="list-group-item">Contenedores</li></a>
+                      <a href="#"><li class="list-group-item">Empleados</li></a>
+                      <a href="#"><li class="list-group-item">Gráficas y estadísticas</li></a>
                     </ul>
                 </div>
             </div>
